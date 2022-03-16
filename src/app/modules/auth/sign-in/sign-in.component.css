@@ -1,0 +1,107 @@
+.login-comp {
+  background: linear-gradient(135deg, #ff0099, #493240);
+  width: 100%;
+  /* float: left; */
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-left {
+  height: calc(100vh - 40px);
+  display: table;
+  text-align: center;
+}
+
+.login-left-inn {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.login-bg {
+  width: 65%;
+}
+
+.login-card {
+  height: calc(100vh - 40px);
+  display: table;
+  text-align: center;
+}
+
+.login-card mat-card {
+  background: white;
+  width: 60%;
+  margin: auto;
+  padding: 25px;
+  border: 2px solid #cddce0;
+}
+
+.login-comp mat-card-header {
+  display: inherit;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.login-left-inn {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.brandcontroller img {
+  border-radius: 50%;
+}
+
+.login-comp .login-card mat-form-field {
+  width: 100%;
+}
+
+.login-comp .login-title {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 15px 0;
+  color: #e2399f;
+}
+
+.forget {
+  float: right;
+  width: 100%;
+  text-align: right;
+  color: #f1527e;
+  font-weight: 500;
+}
+
+.loginactionbtn .login-btn {
+  padding: 0 50px;
+  background-color: #f1527e;
+  color: #fff;
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+.super {
+  color: #f1527e;
+  font-weight: 500;
+}
+
+.navigate {
+  margin: 0;
+  color: #394050;
+}
+
+@media (max-width: 960px) {
+  .login-comp .login-card {
+    height: auto;
+  }
+
+  .login-left-inn {
+    padding: 10px;
+  }
+
+  .login-left-inn mat-card {
+    width: 100%;
+  }
+
+  .login-left {
+    display: none;
+  }
+}

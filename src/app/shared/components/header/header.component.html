@@ -1,0 +1,16 @@
+<nav class="navbar sticky">
+  <div class="brand-title">Generation-i</div>
+  <a href="#" class="toggle-button" (click)="toggleButton()">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+  </a>
+  <div class="navbar-links" [ngClass]="{'active': sideNav == true}">
+      <ul>
+          <li><a href="#">about</a></li>
+          <li><a href="# ">portfolio</a></li>
+          <li><a href="# ">team</a></li>
+          <li><a href="# ">contact Us</a></li>
+      </ul>
+  </div>
+</nav>

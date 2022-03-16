@@ -1,0 +1,17 @@
+.heading {
+  font-size: 18px;
+}
+
+.heading ol li {
+  font-size: 16px;
+}
+
+.card-header {
+  height: 40px;
+}
+
+.card-header h3 {
+  padding: 0;
+  color: #000;
+  font-size: 16px;
+}

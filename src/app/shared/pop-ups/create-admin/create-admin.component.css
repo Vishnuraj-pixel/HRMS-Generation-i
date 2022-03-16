@@ -1,0 +1,126 @@
+.hide {
+  display: none;
+}
+
+.card {
+  border: 1px solid #e6eaee;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+.close {
+  float: right;
+  padding: 0.1rem;
+  border: 1px solid #000;
+  border-radius: 20%;
+  margin-right: -16px;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: #004a9f;
+}
+
+.card h3 {
+  font-size: 20px;
+  text-align: center;
+  font-family: "Sansita Swashed", cursive;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.upload-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #7b7c7e;
+  border-radius: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hand-tool small {
+    font-size: 16px;
+}
+
+
+
+
+mat-form-field {
+  font-size: 16px;
+  width: 100%;
+  color: #7e7c8b;
+}
+
+.header {
+  background-color: #004a9f;
+  width: 100%;
+}
+
+.signup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999999;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.signup .card {
+  min-height: 150px;
+  max-height: 600px;
+  text-align: left;
+  max-width: 500px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+.row-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn-primary {
+  border-radius: 30px;
+}
+
+.float-right {
+  float: right;
+}
+
+.row-streach {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-start;
+}
+
+.row-streach mat-form-field:nth-child(1) {
+  margin-right: 5px;
+}
+
+.row-streach mat-form-field:nth-child(2) {
+  margin-left: 5px;
+}
+
+/* ngx-mat-file-input mat-form-field mat-datepicker-toggle */
+
+mat-form-field, mat-radio-group, ngx-mat-file-input {
+  font-size: 16px;
+  max-width: 400px;
+  min-width: 100px;
+  color: #7e7c8b;
+}

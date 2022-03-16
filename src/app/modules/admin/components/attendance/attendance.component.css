@@ -1,0 +1,74 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  grid-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  height: 100%;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  background-color: #202224;
+  min-height: 200px;
+  min-width: 60px;
+  flex: 1;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  color: #bbbbbb;
+}
+
+.grid-item-2 {
+  grid-row: span 2;
+}
+
+.grid-item-1 p {
+  font-size: 20px;
+}
+
+.grid-item-1 small {
+  font-size: 14px;
+}
+
+.grid-item-1 button {
+  font-size: 14px;
+  margin: 1px 5px 1px 5px;
+  padding: 3px 20px 3px 20px;
+  border-radius: .50rem;
+  border: none;
+}
+
+.grid-item-1 span {
+  font-size: 12px;
+  line-height: 100%;
+}
+
+.grid-item-2 {
+  position: relative;
+}
+
+.grid-item-2 p {
+  font-size: 20px;
+}
+
+.grid-item-2 .container-img {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-item-2 .container-img img {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.grid-item-2 .content {
+  margin: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.grid-item-2 .content p {
+  font-size: 14px;
+}

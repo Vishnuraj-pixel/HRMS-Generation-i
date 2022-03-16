@@ -1,0 +1,134 @@
+<div class="signup" [ngClass]="{ 'hide': !createAdminPopUp }">
+    <div class="card list">
+        <div class="col-auto">
+            <div mat-icon-button class="close" (click)="closePopUp()">
+                <mat-icon style="float: right;">close</mat-icon>
+            </div>
+        </div>
+        <h3>Create Admin profile</h3>
+        <form [formGroup]="createAdmin" *ngIf="step === 1 || step === 2" (ngSubmit)="createAdminSignUp()">
+            <div class="card-body">
+                <div *ngIf="step === 1">
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input type="text" placeholder="First Name" formControlName="first_name" matInput>
+                            <mat-hint>Enter your first name</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" placeholder="Last Name" formControlName="last_name" matInput>
+                            <mat-hint>Enter your last name</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input type="number" placeholder="Employee code" formControlName="employee_code" matInput>
+                            <mat-hint>Enter your employee code</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" placeholder="Occupation" formControlName="occupation" matInput>
+                            <mat-hint>Enter your occupation</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input type="email" placeholder="Email" formControlName="email" matInput>
+                            <mat-hint>Enter your email</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" placeholder="Phone" formControlName="phone" matInput>
+                            <mat-hint>Enter your phone number</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input formControlName="date_of_birth" placeholder="Date of birth" matInput
+                                [matDatepicker]="picker">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                            <mat-hint>Enter your date of birth</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="number" placeholder="Age" formControlName="age" matInput>
+                            <mat-hint>Enter your age</mat-hint>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div *ngIf="step === 2">
+
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input type="number" placeholder="Work experience" formControlName="work_experience"
+                                matInput>
+                            <mat-hint>Enter your experience(s)</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input type="text" placeholder="Education" formControlName="education" matInput>
+                            <mat-hint>Enter your education</mat-hint>
+                        </mat-form-field>
+                    </div>
+                    <div class="row-streach">
+                        <mat-form-field>
+                            <input type="text" placeholder="Address" formControlName="address" matInput>
+                            <mat-hint>Enter your address</mat-hint>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <ngx-mat-file-input formControlName="profile_pic" placeholder="Profile pic"
+                                [accept]="'.png, .jpeg, .jpg'"></ngx-mat-file-input>
+                            <mat-icon matSuffix>insert_photo</mat-icon>
+                            <mat-hint>Enter your profile pic</mat-hint>
+                            <mat-error *ngIf="createAdmin.get('profile_pic').hasError('required')">
+                                Please select a file
+                            </mat-error>
+                            <mat-error *ngIf="createAdmin.get('profile_pic').hasError('maxContentSize')">
+                                The total size must not exceed
+                                {{createAdmin.get('profile_pic')?.getError('maxContentSize').maxSize | byteFormat}}.
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                    <br />
+                    <mat-radio-group formControlName="gender">
+                        <label>Pick your gender</label><br />
+                        <mat-radio-button value="male">Male</mat-radio-button><br />
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <br />
+            </div>
+            <div class="card-footer" *ngIf="step === 1 || step ===2 ">
+                <div align="right">
+                    <button *ngIf="step === 1" type="button" class="btn btn-primary"
+                        (click)="moveToOtherDetails()">Next</button>
+                </div>
+                <div class="row-streach">
+                    <button *ngIf="step === 2" type="button" class="btn btn-primary"
+                        (click)="moveBackToBasicDetails()">Back</button>
+                    <button *ngIf="step === 2" class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+        <form [formGroup]="createAdminUsername" (ngSubmit)="createAdminUsernameSignUp()" *ngIf="step === 3">
+            <div class="card-body">
+                <div *ngIf="step === 3">
+                    <mat-form-field>
+                        <input type="text" placeholder="Username" formControlName="username" matInput>
+                        <mat-icon matSuffix>person</mat-icon>
+                        <mat-hint>Enter username</mat-hint>
+                    </mat-form-field>
+                    <mat-form-field>
+                        <input [type]="textOrPassword" placeholder="Password" formControlName="password" matInput>
+                        <mat-icon *ngIf="textOrPassword === 'password'" matSuffix (click)="visibilityModeOn(true)">
+                            visibility</mat-icon>
+                        <mat-icon *ngIf="textOrPassword === 'text'" matSuffix (click)="visibilityModeOn(false)">
+                            visibility_off</mat-icon>
+                        <mat-hint>Enter password</mat-hint>
+                    </mat-form-field>
+                <br />
+                <br />
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

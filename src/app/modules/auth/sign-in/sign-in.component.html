@@ -1,0 +1,159 @@
+<app-header></app-header>
+<app-create-admin></app-create-admin>
+<!-- <div class="signIn">
+  <div class="container">
+    <h1>Login to Your Account</h1>
+    <p>
+      Choose admin or employee. If you are ex-employee you can also sign-in.
+    </p>
+    <div class="row">
+      <div class="employees">
+        <h1>Employees Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser('em')">
+          <div
+            class="wrapper"
+            [ngClass]="{ 'active': username }"
+          >
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              formControlName="username"
+            />
+            <span class="icon">
+              <mat-icon>perm_identity</mat-icon>
+            </span>
+          </div>
+          <br />
+          <div class="wrapper">
+            <input
+              type="text"
+              placeholder="Password"
+              required
+              formControlName="password"
+            />
+            <span class="icon"><mat-icon>lock</mat-icon></span>
+          </div>
+          <br />
+          <button type="submit" class="sign-in_button">
+            Signin to Your Account
+          </button>
+        </form>
+      </div>
+      <div class="slash">/</div>
+      <div class="admin">
+        <h1>Admin Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="loginUser('ad')">
+          <div class="wrapper">
+            <input
+              type="text"
+              placeholder="Username"
+              required
+              formControlName="username"
+            />
+            <span class="icon"><mat-icon>perm_identity</mat-icon></span>
+          </div>
+          <br />
+          <div class="wrapper">
+            <input
+              type="text"
+              placeholder="Password"
+              required
+              formControlName="password"
+            />
+            <span class="icon"><mat-icon>lock</mat-icon></span>
+          </div>
+          <br />
+          <button class="sign-in_button">Signin to Your Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <button
+    mat-fab
+    color="primary"
+    aria-label="Example icon button with a delete icon"
+    class="setting"
+    (click)="setBackground()"
+  >
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <div class="popUps" *ngIf="popUp === true">
+    <div class="title"><p>Set Background</p></div>
+    <br />
+    <div class="bgWrapper">
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+    </div>
+    <div class="bgWrapper2">
+      <div class="bg"></div>
+      <div class="bg"></div>
+      <div class="bg"></div>
+    </div>
+  </div>
+</div> -->
+<div class="login-comp">
+  <div class="login-left col-md-6 col-sm-12">
+    <div class="login-left-inn">
+      <img style="border-radius: 50%;" src="../../../../assets/images/gif/93385-login.gif" class="login-bg">
+    </div>
+  </div>
+  <div class="login-card col-md-6 col-sm-12">
+    <div class="login-left-inn">
+      <mat-card>
+        <mat-card-content>
+          <mat-card-header class="brandcontroller">
+            <img src="../../../../assets/images/png/GI-Logo500" alt="Logo" width="60">
+            <h3 class="login-title" *ngIf="step === 1">Employee Login</h3>
+            <h3 class="login-title" *ngIf="step === 2">Admin Login</h3>
+            <p>Access account to manage your work flow</p>
+          </mat-card-header>
+          <form *ngIf="step === 1" [formGroup]="loginForm" (ngSubmit)="loginUser('em')">
+            <mat-form-field>
+              <input type="text" placeholder="Username" formControlName="username" matInput>
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-hint>Enter your education</mat-hint>
+            </mat-form-field>
+            <mat-form-field>
+              <input [type]="textOrPassword" placeholder="Password" formControlName="password" matInput>
+              <mat-icon *ngIf="textOrPassword === 'password'" matSuffix (click)="visibilityModeOn(true)">visibility
+              </mat-icon>
+              <mat-icon *ngIf="textOrPassword === 'text'" matSuffix (click)="visibilityModeOn(false)">visibility_off
+              </mat-icon>
+              <mat-hint>Enter your education</mat-hint>
+            </mat-form-field>
+            <button type="button" mat-button class="forget">Forgot Password?</button>
+            <mat-card-actions class="loginactionbtn">
+              <button mat-button color="primary" class="login-btn">Login</button>
+            </mat-card-actions>
+            <p class="navigate">Are you Admin? <button type="button" mat-button class="super" (click)="adminSignIn()">Login as Admin</button></p>
+          </form>
+
+          <form *ngIf="step === 2" [formGroup]="loginForm" (ngSubmit)="loginUser('ad')">
+            <mat-form-field>
+              <input type="text" placeholder="Username" formControlName="username" matInput>
+              <mat-icon matSuffix>person</mat-icon>
+              <mat-hint>Enter your education</mat-hint>
+            </mat-form-field>
+            <mat-form-field>
+              <input [type]="textOrPassword" placeholder="Password" formControlName="password" matInput>
+              <mat-icon *ngIf="textOrPassword === 'password'" matSuffix (click)="visibilityModeOn(true)">visibility
+              </mat-icon>
+              <mat-icon *ngIf="textOrPassword === 'text'" matSuffix (click)="visibilityModeOn(false)">visibility_off
+              </mat-icon>
+              <mat-hint>Enter your education</mat-hint>
+            </mat-form-field>
+            <button type="button" mat-button class="forget">Forgot Password?</button>
+            <mat-card-actions class="loginactionbtn">
+              <button mat-button color="primary" class="login-btn">Login</button>
+            </mat-card-actions>
+            <p class="navigate">Are you employee? <button type="button" mat-button class="super" (click)="employeeSignIn()">Login as Employee</button></p>
+          </form>
+
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

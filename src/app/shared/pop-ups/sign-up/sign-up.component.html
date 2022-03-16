@@ -1,0 +1,36 @@
+<div class="signup" [ngClass]="{'hide': !signUp}">
+    <div class="card list">
+        <div class="col-auto">
+            <div mat-icon-button class="close" (click)="closePopUp()">
+                <mat-icon style="float: right;">close</mat-icon>
+            </div>
+        </div>
+        <h3>Sign Up</h3>
+        <div class="card-header">
+            <img [src]="userData.profile_pic != null ? 'http://localhost:8088/' + userData.profile_pic : '../../../../assets/images/profile_pic.png'">
+            <br />
+            Hi, {{userData.first_name}} <br />Create username & password for sign in.
+        </div>
+
+
+        <form [formGroup]="createUser" (ngSubmit)="createUsrPass()">
+            <div class="card-body">
+                <mat-form-field>
+                    <input type="text" placeholder="Username" formControlName="username" [value]="useEmailAsPassword" matInput>
+                    <mat-icon matSuffix>person</mat-icon>
+                    <mat-hint>Enter username</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <input [type]="textOrPassword" placeholder="Password" formControlName="password" matInput>
+                    <mat-icon *ngIf="textOrPassword === 'password'" matSuffix (click)="visibilityModeOn(true)">visibility</mat-icon>
+                    <mat-icon *ngIf="textOrPassword === 'text'" matSuffix (click)="visibilityModeOn(false)">visibility_off</mat-icon>
+                    <mat-hint>Enter password</mat-hint>
+                </mat-form-field>
+                <br />
+                <br />
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

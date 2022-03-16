@@ -1,0 +1,53 @@
+.heading {
+    font-size: 16px;
+}
+
+.componentName {
+    font-size: 18px;
+    color: #30385d;
+}
+
+.card-header {
+    height: 40px;
+    background: #004a9f;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.card-header h3 {
+    font-weight: bold;
+}
+
+.form-group label {
+    font-size: 20px;
+}
+
+mat-form-field, mat-radio-group, ngx-mat-file-input, mat-checkbox {
+    font-size: 16px;
+    width: 100%;
+    color: #7e7c8b;
+}
+
+.mat-sort-header-container {
+    align-items: center;
+}
+
+.row-input {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+}
+
+.row-input mat-form-field:nth-child(1) {
+    margin-right: .50rem;
+}
+
+.row-input mat-form-field:nth-child(2) {
+    margin-left: .50rem;
+}
+
+.sortTable {
+    width: 300px;
+    font-size: 16px;
+    color: #30385d;
+}

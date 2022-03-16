@@ -1,0 +1,149 @@
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrap" style="width: 100%;">
+  <!-- Content Header (Page header) -->
+  <section class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2 heading">
+        <div class="col-sm-6 componentName">
+          <h1>General Form</h1>
+        </div>
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item active">Create Employee</li>
+          </ol>
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Create Employee</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <form [formGroup]="createEmployee" (ngSubmit)="createEmployees()">
+              <div class="card-body">
+                <div class="row-input">
+                  <mat-form-field>
+                    <input type="text" placeholder="First name" formControlName="first_name" matInput>
+                    <mat-hint>Enter your first name</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input type="text" placeholder="Last name" formControlName="last_name" matInput>
+                    <mat-hint>Enter your last name</mat-hint>
+                  </mat-form-field>
+                </div>
+
+                <mat-form-field>
+                  <input type="text" placeholder="Occupation" formControlName="occupation" matInput>
+                  <mat-hint>Enter your occupation</mat-hint>
+                </mat-form-field>
+
+                <div class="row-input">
+                  <mat-form-field>
+                    <input type="tel" placeholder="Phone" formControlName="phone" matInput>
+                    <mat-hint>Enter your phone number</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input type="text" placeholder="Employee Code" formControlName="employee_code" matInput>
+                    <mat-hint>Enter your employee code</mat-hint>
+                  </mat-form-field>
+                </div>
+                <mat-form-field>
+                  <input type="email" placeholder="Email" formControlName="email" matInput>
+                  <mat-hint>Enter your email id</mat-hint>
+                </mat-form-field>
+                <div class="row-input">
+                  <mat-form-field>
+                    <input formControlName="date_of_birth" placeholder="Date of birth" matInput
+                      [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                    <mat-hint>Enter your date of birth</mat-hint>
+                  </mat-form-field>
+
+                  <mat-form-field>
+                    <input type="number" placeholder="Age" formControlName="age" matInput>
+                    <mat-hint>Enter your age</mat-hint>
+                  </mat-form-field>
+                </div>
+
+                <div class="row-input">
+                  <mat-form-field>
+                    <input type="text" placeholder="Education" formControlName="education" matInput>
+                    <mat-hint>Enter your education</mat-hint>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <input type="number" placeholder="Work Experience" formControlName="work_experience" matInput>
+                    <mat-hint>Enter your work experience</mat-hint>
+                  </mat-form-field>
+                </div>
+                <mat-form-field>
+                  <input type="text" placeholder="Address" formControlName="address" matInput>
+                  <mat-hint>Enter your address</mat-hint>
+                </mat-form-field>
+                <br>
+                <br>
+                <div class="row-input">
+                  <mat-radio-group formControlName="gender">
+                    <label>Pick your gender</label><br />
+                    <mat-radio-button value="male">Male</mat-radio-button><br />
+                    <mat-radio-button value="female">Female</mat-radio-button>
+                  </mat-radio-group>
+                  <mat-form-field>
+                    <ngx-mat-file-input formControlName="profile_pic" placeholder="Profile pic"
+                      [accept]="'.png, .jpeg, .jpg'"></ngx-mat-file-input>
+                    <mat-icon matSuffix>insert_photo</mat-icon>
+                    <mat-hint>Enter your profile pic</mat-hint>
+                    <mat-error *ngIf="createEmployee.get('profile_pic').hasError('required')">
+                      Please select a file
+                    </mat-error>
+                    <mat-error *ngIf="createEmployee.get('profile_pic').hasError('maxContentSize')">
+                      The total size must not exceed
+                      {{createEmployee.get('profile_pic')?.getError('maxContentSize').maxSize | byteFormat}}.
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <br />
+                <mat-checkbox formControlName="emailToggle" class="example-margin">Use email as username</mat-checkbox>
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer">
+                <div class="row-input">
+                  <span></span>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <table class="sortTable"  matSort (matSortChange)="sortData($event)">
+            <tr>
+              <th mat-sort-header="id">No</th>
+              <th mat-sort-header="first_name">Name</th>
+              <th mat-sort-header="occupation">Occupation</th>
+              <th mat-sort-header="email">Email</th>
+              <th mat-sort-header="is_employee">Employee</th>
+              <th mat-sort-header="createdAt">Created At</th>
+            </tr>
+          
+            <tr *ngFor="let employeeTable of sortedData">
+              <td>{{ employeeTable.id }}</td>
+              <td>{{ employeeTable.first_name }}</td>
+              <td>{{ employeeTable.occupation }}</td>
+              <td>{{ employeeTable.email }}</td>
+              <td>{{ employeeTable.is_employee }}</td>
+              <td>{{ employeeTable.createdAt | date }}</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
