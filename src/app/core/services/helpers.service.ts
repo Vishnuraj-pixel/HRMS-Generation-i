@@ -11,6 +11,7 @@ export class HelpersService {
   public userId: any = new BehaviorSubject<any>(null);
   public isAuth: any = new BehaviorSubject<boolean>(false);
   public openPopUp: any = new BehaviorSubject<boolean>(false);
+  public openPopUpAddFramework: any = new BehaviorSubject<boolean>(false);
   public userData: any = new BehaviorSubject<any>(null);
   public useEmailAsUserName: any = new BehaviorSubject<any>(false);
   constructor() {}
@@ -26,11 +27,14 @@ export class HelpersService {
     // console.log("helper1", this.openPopUp)
   }
 
+  toggleAddFrameworkModal(open: boolean) {
+    this.openPopUpAddFramework.next(open)
+  }
+
   // Save user
   saveUser(data: any) {
-    const userLoginData: any = this.decrypt(data)
-    this.user = userLoginData;
-    this.userId.next(userLoginData.employeeId);
+    this.user = data;
+    this.userId.next(data.employeeId);
     console.log(this.userId, "helperSekjnfdkn!!!!!!!!!!!!!!!")
     this.isAuth.next(true);
   }

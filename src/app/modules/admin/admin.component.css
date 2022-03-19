@@ -59,7 +59,6 @@ mat-sidenav-container {
   max-height: calc(100vh - 98px);
   margin: 16px;
   margin-left: 32px;
-  color: #f0f0ff;
   border-radius: 10px;
   padding: 1rem;
   position: relative;

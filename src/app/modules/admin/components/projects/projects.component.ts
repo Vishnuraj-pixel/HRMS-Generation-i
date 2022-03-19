@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HelpersService } from 'src/app/core/services/helpers.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private helper: HelpersService) { }
 
   ngOnInit(): void {
   }
 
+  addFramework() {
+    this.helper.toggleAddFrameworkModal(true);
+  }
 }

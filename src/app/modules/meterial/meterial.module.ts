@@ -23,7 +23,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatTableModule } from '@angular/material/table';
-import {CdkAccordionModule} from '@angular/cdk/accordion';
+import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -34,41 +34,40 @@ import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
-    exports: [
-        MatSliderModule,
-        MatTabsModule,
-        MatSidenavModule,
-        MatButtonToggleModule,
-        MatDatepickerModule,
-        MatIconModule,
-        MatToolbarModule,
-        MatDialogModule,
-        MatExpansionModule,
-        MatRadioModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatNativeDateModule,
-        MatProgressBarModule,
-        MatSnackBarModule,
-        MatInputModule,
-        MatProgressSpinnerModule,
-        MatDividerModule,
-        MatListModule,
-        MatMenuModule,
-        MatCardModule,
-        MatBottomSheetModule,
-        MatAutocompleteModule,
-        MatTableModule,
-        CdkAccordionModule,
-        MatButtonModule,
-        MatGridListModule,
-        MatSlideToggleModule,
-        MatPaginatorModule,
-        MatStepperModule,
-        MatTreeModule,
-        MaterialFileInputModule,
-        MatCheckboxModule
-    ],
-
+  exports: [
+    MatSliderModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatButtonToggleModule,
+    MatDatepickerModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatDialogModule,
+    MatExpansionModule,
+    MatRadioModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule,
+    MatMenuModule,
+    MatCardModule,
+    MatBottomSheetModule,
+    MatAutocompleteModule,
+    MatTableModule,
+    CdkAccordionModule,
+    MatButtonModule,
+    MatGridListModule,
+    MatSlideToggleModule,
+    MatPaginatorModule,
+    MatStepperModule,
+    MatTreeModule,
+    MaterialFileInputModule,
+    MatCheckboxModule,
+  ],
 })
-export class MaterialModule { }
+export class MaterialModule {}

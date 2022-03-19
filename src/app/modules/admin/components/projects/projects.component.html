@@ -1,70 +1,15 @@
 <h1 class="h1">> Projects</h1>
-<div class="table-container">
-  <br />
-  <table class="table">
-    <thead>
-      <tr>
-        <th>SNO</th>
-        <th>Project Name</th>
-        <th>Project start date</th>
-        <th>Project-end-date</th>
-        <th>Project-deadline</th>
-        <th>Description</th>
-        <th>View</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td data-label="SNO">1</td>
-        <td data-label="Project Name">Swosta App</td>
-        <td data-label="Project start date">1 Jan 2021</td>
-        <td data-label="Project end date">2 jan 2021</td>
-        <td data-label="Project deadline">3 jan 2021</td>
-        <td data-label="Description">
-          lorum ipsum fjdsjfsdijjnfdnsknfksdnkfsndfskj
-        </td>
-        <td data-label="View">
-          <a class="btn" href=" https//www.github?new-app.com">View</a>
-        </td>
-      </tr>
-      <tr>
-        <td data-label="SNO">2</td>
-        <td data-label="Project Name">Swosta App</td>
-        <td data-label="Project start date">1 Jan 2021</td>
-        <td data-label="Project end date">2 jan 2021</td>
-        <td data-label="Project deadline">3 jan 2021</td>
-        <td data-label="Description">
-          lorum ipsum fjdsjfsdijjnfdnsknfksdnkfsndfskj
-        </td>
-        <td data-label="View">
-          <a class="btn" href=" https//www.github?new-app.com">View</a>
-        </td>
-      </tr>
-      <tr>
-        <td data-label="SNO">3</td>
-        <td data-label="Project Name">Swosta App</td>
-        <td data-label="Project start date">1 Jan 2021</td>
-        <td data-label="Project end date">2 jan 2021</td>
-        <td data-label="Project deadline">3 jan 2021</td>
-        <td data-label="Description">
-          lorum ipsum fjdsjfsdij jnfdnsknfksdnkfsndfskj
-        </td>
-        <td data-label="View">
-          <a class="btn" href=" https//www.github?new-app.com">View</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <mat-paginator
-    style="background-color: #1e1e2c"
-    [length]="100"
-    [pageSize]="10"
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    aria-label="Select page"
-  >
-  </mat-paginator>
-  <br />
-  <button>Add Project</button>
-  <br />
-  <br>
+<div class="row button-container">
+  <button (click)="addFramework()" style="margin-right:10px;" mat-stroked-button color="primary">Add framework</button>
+  <button style="margin-left:10px;" mat-stroked-button color="primary">Delete framework</button>
+</div>
+
+<div class="framework-container">
+  <mat-grid-list cols="3" rowHeight="fit" style="max-height: 200px; min-height: 60px;" gutterSize="10px">
+    <mat-grid-tile style="border: 1px solid #000;">1</mat-grid-tile>
+    <mat-grid-tile style="border: 1px solid #000;">2</mat-grid-tile>
+    <mat-grid-tile style="border: 1px solid #000;">3</mat-grid-tile>
+    <mat-grid-tile style="border: 1px solid #000;">4</mat-grid-tile>
+    <mat-grid-tile style="border: 1px solid #000;">5</mat-grid-tile>
+  </mat-grid-list>
 </div>

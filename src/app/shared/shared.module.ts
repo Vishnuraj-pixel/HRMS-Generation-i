@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatSidenavModule } from '@angular/material/sidenav';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -13,10 +13,11 @@ import { MaterialModule } from '../modules/meterial/meterial.module';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertPopUpComponent } from './pop-ups/alert-pop-up/alert-pop-up.component';
+import { AddFrameworkComponent } from './pop-ups/add-framework/add-framework.component';
 
 @NgModule({
-  imports: [CommonModule, MatSidenavModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  declarations: [HeaderComponent, FooterComponent, SideBarComponent, CreateEmployeeComponent, CreateAdminComponent, ChangeEmployeeDetailsComponent, AddProjectsComponent, SignUpComponent, AlertPopUpComponent],
-  exports: [HeaderComponent, FooterComponent, SideBarComponent, SignUpComponent, CreateAdminComponent],
+  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
+  declarations: [HeaderComponent, FooterComponent, SideBarComponent, CreateEmployeeComponent, CreateAdminComponent, ChangeEmployeeDetailsComponent, AddProjectsComponent, SignUpComponent, AlertPopUpComponent, AddFrameworkComponent],
+  exports: [HeaderComponent, FooterComponent, SideBarComponent, SignUpComponent, CreateAdminComponent, AddFrameworkComponent],
 })
 export class SharedModule {}

@@ -5,5 +5,7 @@ export const APIURL = {
   createEmpUrmePass: 'api/emp_login/create',
   findAllEmployeeByuserType: 'api/employees/employee-code/',
   findAllAdminByUserType: 'api/employees/admin/employee-code/',
-  findAllAdminUsernameByUserType: 'api/emp_login/admin/employee-code/'
+  findAllAdminUsernameByUserType: 'api/emp_login/admin/employee-code/',
+  // Project
+  CreateProjectFramework: 'api/project_framework/create'
 };

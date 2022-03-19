@@ -1,0 +1,31 @@
+<div class="signup" [ngClass]="{'hide': !closePopups}">
+    <div class="card list">
+        <div class="col-auto">
+            <div mat-icon-button class="close" (click)="closePopUp()">
+                <mat-icon style="float: right;">close</mat-icon>
+            </div>
+        </div>
+        <h3>Create Framework</h3>
+        <div class="card-body">
+            <form [formGroup]="createFramework" (ngSubmit)="createFrameworks()">
+                <mat-form-field>
+                    <input type="text" placeholder="Framework" formControlName="framework" matInput>
+                    <mat-hint>Enter new project framework</mat-hint>
+                </mat-form-field>
+                <mat-form-field>
+                    <ngx-mat-file-input formControlName="framework_image" placeholder="Framework image"
+                      [accept]="'.png, .jpeg, .jpg'"></ngx-mat-file-input>
+                    <mat-icon matSuffix>insert_photo</mat-icon>
+                    <mat-hint>Enter new project framework icon</mat-hint>
+                    <mat-error *ngIf="createFramework.get('framework_image').hasError('required')">
+                      Please select a file
+                    </mat-error>
+                    <mat-error *ngIf="createFramework.get('framework_image').hasError('maxContentSize')">
+                      The total size must not exceed
+                      {{createFramework.get('profile_pic')?.getError('maxContentSize').maxSize | byteFormat}}.
+                    </mat-error>
+                  </mat-form-field>
+            </form>
+        </div>
+    </div>
+</div>

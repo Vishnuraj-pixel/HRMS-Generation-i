@@ -72,17 +72,14 @@ export class SignInComponent implements OnInit {
     this.api.postRequest(APIURL.loginUrl, formData).subscribe((res: any) => {
       console.log('signed-in....');
       localStorage.setItem('accessToken', this.helper.encrypt(res.accessToken));
-      localStorage.setItem('auth_data', this.helper.encrypt(JSON.stringify(res)))
-      console.log(localStorage.getItem('auth_data'));
+      localStorage.setItem(
+        'auth_data',
+        this.helper.encrypt(JSON.stringify(res))
+      );
       localStorage.setItem('refreshToken', res.refreshToken);
       if (res.accessToken) {
-        this.helper.saveUser(localStorage.getItem('auth_data'));
+        this.helper.saveUser(res);
         this.router.navigate(['/admin']);
-        if (res.user_type == 1) {
-          localStorage.setItem('userEmployee', res.user_type);
-        } else if (res.user_type == 2) {
-          localStorage.setItem('userAdmin', res.user_type);
-        }
       }
     }),
       (error: any) => {
