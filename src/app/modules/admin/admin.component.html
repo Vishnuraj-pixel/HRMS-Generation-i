@@ -32,12 +32,12 @@
 <!-- popUps -->
 <app-sign-up></app-sign-up>
 <app-add-framework></app-add-framework>
+<app-add-project></app-add-project>
 
 <mat-sidenav-container>
   <mat-sidenav #sidenav="matSidenav">
     <img class="avatar mat-elevation-z8"
-      [src]="employeeData ? baseApiUrl + employeeData.profile_pic : ''" />
-    <!-- "../assets/images/css3.ico" -->
+      [src]="employeeData && employeeData.profile_pic ? baseApiUrl + employeeData.profile_pic : '../assets/images/css3.ico'" />
     <h4 class="name">{{employeeData.first_name + " " + employeeData.last_name}}</h4>
     <p class="designation">{{employeeData.occupation}}</p>
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import * as CryptoJS from 'crypto-js';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,10 @@ export class HelpersService {
   public openPopUpAddFramework: any = new BehaviorSubject<boolean>(false);
   public userData: any = new BehaviorSubject<any>(null);
   public useEmailAsUserName: any = new BehaviorSubject<any>(false);
-  constructor() {}
+  public createdFramework: any = new BehaviorSubject<any>(false);
+  public createProjectPopUp: any = new BehaviorSubject<any>(false);
+  public updateProjectPopUp: any = new BehaviorSubject<any>(false);
+  constructor(private router: Router) {}
 
   toggleSignUpModal(open: boolean, userId?: number, useEmail?: boolean) {
     this.openPopUp.next(open);
@@ -52,6 +56,13 @@ export class HelpersService {
     this.user = null;
     localStorage.removeItem('accessToken');
     localStorage.removeItem('auth_data');
+    this.router.navigate(['/auth/sign-in'])
+  }
+
+  notAuthorized () {
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('auth_data');
+    this.router.navigate(['/auth/sign-in'])
   }
 
   // Encrypt
@@ -117,4 +128,17 @@ export class HelpersService {
 
     return decrypted.toString(CryptoJS.enc.Utf8);
   }
+
+  createFramework(create: boolean) {
+    this.createdFramework.next(create);
+  }
+
+  createProject(create: boolean) {
+    this.createProjectPopUp.next(create)
+  }
+
+  updateProject(create: boolean) {
+    this.updateProjectPopUp.next(create)
+  }
+
 }

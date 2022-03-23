@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/core/guards/auth.guard';
@@ -7,6 +8,7 @@ import { CalenderComponent } from './components/calender/calender.component';
 import { DailyTasksComponent } from './components/daily-tasks/daily-tasks.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { EmployeesComponent } from './components/employees/employees.component';
+import { ProjectListComponent } from './components/project-list/project-list.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { RegisterEmployeesComponent } from './components/register-employees/register-employees.component';
 import { SettingsComponent } from './components/settings/settings.component';
@@ -28,6 +30,11 @@ const routes: Routes = [
         path: 'projects',
         canActivate: [AuthGuard],
         component: ProjectsComponent,
+      },
+      {
+        path: 'projects-list',
+        canActivate: [AuthGuard],
+        component: ProjectListComponent
       },
       {
         path: 'employees',
@@ -69,7 +76,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [CommonModule,RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [AuthGuard],
 })

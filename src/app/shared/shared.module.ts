@@ -14,10 +14,12 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AlertPopUpComponent } from './pop-ups/alert-pop-up/alert-pop-up.component';
 import { AddFrameworkComponent } from './pop-ups/add-framework/add-framework.component';
+import { AddProjectComponent } from './pop-ups/add-project/add-project.component';
+import { UpdateProjectComponent } from './pop-ups/update-project/update-project.component';
 
 @NgModule({
   imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  declarations: [HeaderComponent, FooterComponent, SideBarComponent, CreateEmployeeComponent, CreateAdminComponent, ChangeEmployeeDetailsComponent, AddProjectsComponent, SignUpComponent, AlertPopUpComponent, AddFrameworkComponent],
-  exports: [HeaderComponent, FooterComponent, SideBarComponent, SignUpComponent, CreateAdminComponent, AddFrameworkComponent],
+  declarations: [HeaderComponent, FooterComponent, SideBarComponent, CreateEmployeeComponent, CreateAdminComponent, ChangeEmployeeDetailsComponent, AddProjectsComponent, SignUpComponent, AlertPopUpComponent, AddFrameworkComponent, AddProjectComponent, UpdateProjectComponent],
+  exports: [HeaderComponent, FooterComponent, SideBarComponent, SignUpComponent, CreateAdminComponent, AddFrameworkComponent, AddProjectComponent],
 })
 export class SharedModule {}

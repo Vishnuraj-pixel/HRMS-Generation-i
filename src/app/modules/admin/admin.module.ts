@@ -17,7 +17,7 @@ import { RegisterEmployeesComponent } from './components/register-employees/regi
 import { CalenderComponent } from './components/calender/calender.component';
 import { TutorialsComponent } from './components/tutorials/tutorials.component';
 import { DailyTasksComponent } from './components/daily-tasks/daily-tasks.component';
-
+import { ProjectListComponent } from './components/project-list/project-list.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -31,6 +31,7 @@ import { DailyTasksComponent } from './components/daily-tasks/daily-tasks.compon
     CalenderComponent,
     TutorialsComponent,
     DailyTasksComponent,
+    ProjectListComponent,
   ],
   imports: [
     CommonModule,

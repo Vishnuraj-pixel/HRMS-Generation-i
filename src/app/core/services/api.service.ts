@@ -15,6 +15,6 @@ export class ApiService {
   }
 
   public getRequest(url: string, data?: any): Observable<any> {
-    return this.http.get<any>(environment.baseApiUrl + url, data);
+    return this.http.get<any>(environment.baseApiUrl + url, data,);
   }
 }

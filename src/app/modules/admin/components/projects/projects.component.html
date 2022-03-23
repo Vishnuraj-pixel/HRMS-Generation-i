@@ -5,11 +5,15 @@
 </div>
 
 <div class="framework-container">
-  <mat-grid-list cols="3" rowHeight="fit" style="max-height: 200px; min-height: 60px;" gutterSize="10px">
-    <mat-grid-tile style="border: 1px solid #000;">1</mat-grid-tile>
-    <mat-grid-tile style="border: 1px solid #000;">2</mat-grid-tile>
-    <mat-grid-tile style="border: 1px solid #000;">3</mat-grid-tile>
-    <mat-grid-tile style="border: 1px solid #000;">4</mat-grid-tile>
-    <mat-grid-tile style="border: 1px solid #000;">5</mat-grid-tile>
+  <mat-grid-list cols="10" rowHeight="2:2" gutterSize="30px">
+    <mat-grid-tile *ngFor="let frameworkList of framework" (click)="navigateToProjectList()">
+      <img class="card-image"
+        [src]="frameworkList && frameworkList.framework_image ?  baseApiUrl + frameworkList.framework_image : '../../../../../assets/images/frameworks.png'" />
+        <br/>
+      <div class="card_inner" align="center">
+        {{frameworkList.framework}}
+        <!-- <button mat-button color="warn" style="font-size: 8px; ">Click here</button> -->
+      </div>
+    </mat-grid-tile>
   </mat-grid-list>
 </div>

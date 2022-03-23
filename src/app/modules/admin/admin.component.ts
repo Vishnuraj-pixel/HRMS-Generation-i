@@ -59,12 +59,13 @@ export class AdminComponent implements OnInit {
     this.helper.userId.subscribe((res: number) => {
       this.api.getRequest(APIURL.employee + res).subscribe((data) => {
         this.employeeData = data
+      }, (error) => {
+        this.helper.isAuthorized()
       })
     })
   }
 
   logout() {
     this.helper.logout()
-    
   }
 }
