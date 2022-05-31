@@ -1,110 +1,68 @@
 <h1 class="h1">> Projects</h1>
 <div class="row-center button-container">
     <button (click)="addProject()" style="margin-right:10px;" mat-stroked-button color="primary">Add Projects</button>
-    <button (click)="updateProject()" style="margin-left:10px;" mat-stroked-button color="primary">Update
-        Projects</button>
+    <button (click)="showInCompletedProjects()" style="margin-left:10px;" mat-stroked-button color="primary">In-complete
+        Projects
+    </button>
+    <button (click)="showInCompletedProjects()" style="margin-left:10px;" mat-stroked-button color="primary">Project in
+        dead-line
+    </button>
+    <button (click)="showInCompletedProjects()" style="margin-left:10px;" mat-stroked-button color="primary">Completed
+        Projects
+    </button>
 </div>
 <br />
 <div class="row align-self-start">
-    <div class="col-md-4 mg-1">
+    <div class="col-md-4 mg-1" *ngFor="let projectList of projectData">
+        <!-- <div *ngIf="let employeeList of employeeData"></div> -->
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Project name</h3>
-                <mat-icon>launch</mat-icon>
-                <mat-icon>update</mat-icon>
+                <h3 class="card-title">{{projectList.project_name}}</h3>
+                <mat-icon (click)="goToGitUrl(projectList.project_url)">launch</mat-icon>
+                <mat-icon (click)="updateProject()">update</mat-icon>
                 <mat-icon>disabled_by_default</mat-icon>
             </div>
-            <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar>
+            <!-- <mat-progress-bar mode="indeterminate" color="warn"></mat-progress-bar> -->
             <div class="card-body">
-                <p>Framework name</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione officia sint veniam illo voluptatem, quia a numquam ipsum inventore voluptatibus.</p>
-                <p>Github Username: vishnurajagopalan293@gmail.com
-                   Github Password: Vishnu@293
-                </p>
+                <p>{{projectList.project_framework}}</p>
+                <p>{{projectList.project_details}}</p>
+                <p>{{projectList.project_description}}</p>
                 <mat-divider></mat-divider>
                 <mat-list role="list">
                     <mat-list-item role="listitem">
                         <span mat-line>Start date:</span>
-                        <span>7/29/2021</span>
+                        <span>{{projectList.project_start_date | date: "dd/MM/yy"}}</span>
                     </mat-list-item>
                     <mat-list-item>
                         <span mat-line>End date:</span>
-                        <span>7/29/2021</span>
+                        <span>{{projectList.project_end_date | date: "dd/MM/yy"}}</span>
                     </mat-list-item>
                     <mat-list-item>
-                        <span mat-line>Completed</span>
-                        <span>Yes</span>
+                        <span mat-line>Completed: </span>
+                        <span>{{projectList.project_completed}}</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <span mat-line>Created by: </span>
+                        <span>{{projectList.employeeData.first_name + " " + projectList.employeeData.last_name}}</span>
                     </mat-list-item>
                 </mat-list>
                 <mat-divider></mat-divider>
                 <br />
+                <div class="btn-container">
+                    <div *ngFor="let contribution of projectList.contributionData">
+                        <!-- <h1>{{ projectList.employeeData.address }}</h1> -->
+                        <img [src]="baseUrl + contribution.employeeData.profile_pic"
+                            style="width: 70px; height: 70px;">
+                    </div>
+                </div>
+                <br />
                 <div align="center">
-                    <button mat-raised-button>Add Contribution</button>
+                    <button mat-stroked-button color="primary" (click)="addFramework(projectList.id)">Employees
+                        Contribution {{" "}}
+                        <mat-icon>person_add</mat-icon>
+                    </button>
                 </div>
             </div>
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
-
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card card-primary">
-            <div class="card-header" style="text-align: center;">
-                <h3 class="card-title">Project name</h3>
-            </div>
-
 
         </div>
     </div>

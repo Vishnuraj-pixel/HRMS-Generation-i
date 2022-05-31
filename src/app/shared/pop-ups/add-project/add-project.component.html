@@ -5,18 +5,13 @@
                 <mat-icon style="float: right;">close</mat-icon>
             </div>
         </div>
-        <h3>Create Framework</h3>
+        <h3>Create Project</h3>
         <div class="card-body">
             <form [formGroup]="createProject" (ngSubmit)="createProjects()">
                 <div *ngIf="step === 1">
                     <mat-form-field>
                         <input type="text" placeholder="Project name" formControlName="project_name" matInput>
                         <mat-icon matSuffix>assignment</mat-icon>
-                        <mat-hint>Enter new project framework</mat-hint>
-                    </mat-form-field>
-                    <mat-form-field>
-                        <input type="text" placeholder="Framework" formControlName="project_framework" matInput>
-                        <mat-icon matSuffix>code</mat-icon>
                         <mat-hint>Enter new project framework</mat-hint>
                     </mat-form-field>
                     <mat-form-field>
@@ -27,8 +22,8 @@
                     <mat-form-field>
                         <mat-label>Enter description</mat-label>
                         <textarea matInput formControlName="project_description"></textarea>
-                        <mat-icon matSuffix>code</mat-icon>
-                    </mat-form-field> 
+                        <mat-icon matSuffix>description</mat-icon>
+                    </mat-form-field>
                 </div>
                 <div *ngIf="step === 2">
                     <mat-form-field>

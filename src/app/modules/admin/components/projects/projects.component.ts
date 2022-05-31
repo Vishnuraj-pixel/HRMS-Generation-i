@@ -13,12 +13,18 @@ import { environment } from 'src/environments/environment';
 export class ProjectsComponent implements OnInit {
   framework: any = [];
   baseApiUrl: string = environment.baseApiUrl;
-  constructor(private helper: HelpersService, private api: ApiService, private router: Router) {}
+  constructor(
+    private helper: HelpersService,
+    private api: ApiService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.listFramework();
-    this.helper.createdFramework.subscribe((created: any) => {
-      this.listFramework();
+    this.helper.createdFramework.subscribe((created: boolean) => {
+      if (created === true) {
+        this.listFramework();
+      }
     });
   }
 
@@ -32,7 +38,7 @@ export class ProjectsComponent implements OnInit {
     this.helper.toggleAddFrameworkModal(true);
   }
 
-  navigateToProjectList() {
-    this.router.navigate(['/admin/projects-list'])
+  navigateToProjectList(id: number) {
+    this.router.navigate(['/admin/projects-list/' + id]);
   }
 }

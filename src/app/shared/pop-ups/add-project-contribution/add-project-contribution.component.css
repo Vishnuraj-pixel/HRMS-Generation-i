@@ -1,0 +1,153 @@
+.hide {
+  display: none;
+}
+
+.row-space-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid #e6eaee;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 10px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+.close {
+  float: right;
+  padding: 0.1rem;
+  border: 1px solid #000;
+  border-radius: 20%;
+  margin-right: -16px;
+  cursor: pointer;
+}
+
+.close:hover {
+  border-color: #004a9f;
+}
+
+.card h3 {
+  font-size: 20px;
+  text-align: center;
+  font-family: "Sansita Swashed", cursive;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.card-title {
+    font-weight:300;
+}
+
+.card-header {
+  border: none;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  color: #212121;
+}
+
+.card-header img {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.card-header img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+mat-form-field {
+  font-size: 16px;
+  width: 100%;
+  color: #7e7c8b;
+}
+
+.header {
+  background-color: #004a9f;
+  width: 100%;
+}
+
+.create {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  top: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.create .card {
+  min-height: 320px;
+  text-align: left;
+  max-width: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
+mat-expansion-panel mat-panel-title, mat-expansion-panel mat-panel-description {
+    font-size: 13px;
+}
+
+mat-expansion-panel mat-panel-description mat-icon {
+    font-size: 17px;
+}
+
+.projectList {
+  min-height: 250px;
+  max-height: 250px;
+  min-width: 290px;
+  border: 1px solid #bfbfbf;
+  border-radius: 0%;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+  overflow-y: auto;
+}
+
+.employee_container {
+  border: none;
+  box-shadow: none;
+}
+
+.colorBlue {
+    color: #0000ff
+}
+
+.alignCenter {
+    align-content: center;
+}
+
+.btn_container {
+    display: flex;
+    justify-content: center;
+}
+
+.btn_container button:nth-child(1) {
+    margin-right: 5px;
+}
+
+.btn_container button:nth-child(2) {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.btn_container button:nth-child(3) {
+    margin-left: 5px;
+}
+
+.inputContainer mat-form-field {
+    height: 10px;
+}
+
+.inputContainer mat-form-field:hover,.inputContainer mat-form-field:focus {
+    height: 10px;
+    border: none;
+}

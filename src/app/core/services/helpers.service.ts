@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class HelpersService {
-  public user: any
+  public user: any;
   public userId: any = new BehaviorSubject<any>(null);
   public isAuth: any = new BehaviorSubject<boolean>(false);
   public openPopUp: any = new BehaviorSubject<boolean>(false);
@@ -18,6 +18,9 @@ export class HelpersService {
   public createdFramework: any = new BehaviorSubject<any>(false);
   public createProjectPopUp: any = new BehaviorSubject<any>(false);
   public updateProjectPopUp: any = new BehaviorSubject<any>(false);
+  public frameworkId: any = new BehaviorSubject<any>(null);
+  public addEmployeeContribution: any = new BehaviorSubject<any>(false);
+  public projectId: any = new BehaviorSubject<any>(null)
   constructor(private router: Router) {}
 
   toggleSignUpModal(open: boolean, userId?: number, useEmail?: boolean) {
@@ -28,25 +31,23 @@ export class HelpersService {
 
   toggleAdminSignUpModal(open: boolean) {
     this.openPopUp.next(open);
-    // console.log("helper1", this.openPopUp)
   }
 
   toggleAddFrameworkModal(open: boolean) {
-    this.openPopUpAddFramework.next(open)
+    this.openPopUpAddFramework.next(open);
   }
 
   // Save user
   saveUser(data: any) {
     this.user = data;
     this.userId.next(data.employeeId);
-    console.log(this.userId, "helperSekjnfdkn!!!!!!!!!!!!!!!")
     this.isAuth.next(true);
   }
 
   isAuthorized() {
-    const token = localStorage.getItem('accessToken')
-    if(token) {
-      this.isAuth.next(true)
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      this.isAuth.next(true);
     }
     return !!token;
   }
@@ -56,13 +57,13 @@ export class HelpersService {
     this.user = null;
     localStorage.removeItem('accessToken');
     localStorage.removeItem('auth_data');
-    this.router.navigate(['/auth/sign-in'])
+    this.router.navigate(['/auth/sign-in']);
   }
 
-  notAuthorized () {
+  notAuthorized() {
     localStorage.removeItem('accessToken');
     localStorage.removeItem('auth_data');
-    this.router.navigate(['/auth/sign-in'])
+    this.router.navigate(['/auth/sign-in']);
   }
 
   // Encrypt
@@ -133,12 +134,18 @@ export class HelpersService {
     this.createdFramework.next(create);
   }
 
-  createProject(create: boolean) {
-    this.createProjectPopUp.next(create)
+  createProject(create: boolean, frameworlId?: number) {
+    this.createProjectPopUp.next(create);
+    console.log('frameworkIDinhelper', frameworlId);
+    this.frameworkId.next(frameworlId);
   }
 
   updateProject(create: boolean) {
-    this.updateProjectPopUp.next(create)
+    this.updateProjectPopUp.next(create);
   }
 
+  addContribution(open: boolean, projectId?: number) {
+    this.addEmployeeContribution.next(open);
+    this.projectId.next(projectId)
+  }
 }

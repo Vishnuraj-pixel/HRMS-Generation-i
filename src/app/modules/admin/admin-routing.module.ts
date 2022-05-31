@@ -32,9 +32,9 @@ const routes: Routes = [
         component: ProjectsComponent,
       },
       {
-        path: 'projects-list',
+        path: 'projects-list/:id',
         canActivate: [AuthGuard],
-        component: ProjectListComponent
+        component: ProjectListComponent,
       },
       {
         path: 'employees',
@@ -76,7 +76,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule,RouterModule.forChild(routes)],
+  imports: [CommonModule, RouterModule.forChild(routes)],
   exports: [RouterModule],
   providers: [AuthGuard],
 })

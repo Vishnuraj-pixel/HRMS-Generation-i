@@ -3,10 +3,11 @@
   <button (click)="addFramework()" style="margin-right:10px;" mat-stroked-button color="primary">Add framework</button>
   <button style="margin-left:10px;" mat-stroked-button color="primary">Delete framework</button>
 </div>
-
+<br />
+<br />
 <div class="framework-container">
   <mat-grid-list cols="10" rowHeight="2:2" gutterSize="30px">
-    <mat-grid-tile *ngFor="let frameworkList of framework" (click)="navigateToProjectList()">
+    <mat-grid-tile *ngFor="let frameworkList of framework" (click)="navigateToProjectList(frameworkList.id)">
       <img class="card-image"
         [src]="frameworkList && frameworkList.framework_image ?  baseApiUrl + frameworkList.framework_image : '../../../../../assets/images/frameworks.png'" />
         <br/>

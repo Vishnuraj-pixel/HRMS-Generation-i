@@ -62,7 +62,7 @@ mat-sidenav-container {
   border-radius: 10px;
   padding: 1rem;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 /* .content::-webkit-scrollbar {

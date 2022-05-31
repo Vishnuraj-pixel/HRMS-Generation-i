@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-// import { MatSidenavModule } from '@angular/material/sidenav';
+import { CommonModule, DatePipe } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
@@ -16,10 +15,39 @@ import { AlertPopUpComponent } from './pop-ups/alert-pop-up/alert-pop-up.compone
 import { AddFrameworkComponent } from './pop-ups/add-framework/add-framework.component';
 import { AddProjectComponent } from './pop-ups/add-project/add-project.component';
 import { UpdateProjectComponent } from './pop-ups/update-project/update-project.component';
-
+import { AddProjectContributionComponent } from './pop-ups/add-project-contribution/add-project-contribution.component';
 @NgModule({
-  imports: [CommonModule, MaterialModule, FormsModule, ReactiveFormsModule],
-  declarations: [HeaderComponent, FooterComponent, SideBarComponent, CreateEmployeeComponent, CreateAdminComponent, ChangeEmployeeDetailsComponent, AddProjectsComponent, SignUpComponent, AlertPopUpComponent, AddFrameworkComponent, AddProjectComponent, UpdateProjectComponent],
-  exports: [HeaderComponent, FooterComponent, SideBarComponent, SignUpComponent, CreateAdminComponent, AddFrameworkComponent, AddProjectComponent],
+  imports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    SideBarComponent,
+    CreateEmployeeComponent,
+    CreateAdminComponent,
+    ChangeEmployeeDetailsComponent,
+    AddProjectsComponent,
+    SignUpComponent,
+    AlertPopUpComponent,
+    AddFrameworkComponent,
+    AddProjectComponent,
+    UpdateProjectComponent,
+    AddProjectContributionComponent,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    SideBarComponent,
+    SignUpComponent,
+    CreateAdminComponent,
+    AddFrameworkComponent,
+    AddProjectComponent,
+    AddProjectContributionComponent,
+  ],
+  providers: [DatePipe],
 })
 export class SharedModule {}

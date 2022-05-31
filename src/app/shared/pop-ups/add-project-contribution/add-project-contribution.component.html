@@ -1,0 +1,62 @@
+<div class="create" [ngClass]="{'hide': !openPopups}">
+    <div class="card list">
+        <div class="col-auto">
+            <div mat-icon-button class="close" (click)="closePopUp()">
+                <mat-icon style="float: right;">close</mat-icon>
+            </div>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title">Employees contribution</h3>
+
+            <div class="projectList">
+                <mat-list>
+                    <div mat-subheader>Employees</div>
+                    <mat-divider></mat-divider>
+                    <mat-list-item *ngFor="let employee of employeeData">
+                        <mat-divider></mat-divider>
+                        <mat-icon mat-list-icon color="primary">badge</mat-icon>
+                        <div mat-line>{{employee.first_name + " " + employee.last_name}}</div>
+                        <div mat-line>{{employee.occupation}}</div>
+                        <button mat-icon-button color="primary" *ngIf="employee.contributionData.length == 0"
+                            (click)="addStartEndDate(employee.id)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                        <button mat-icon-button color="primary" *ngIf="employee.contributionData.length !== 0"
+                            (click)="updateStartEndDate(employee.contributionData)">
+                            <mat-icon>update</mat-icon>
+                        </button>
+                        <mat-divider></mat-divider>
+                    </mat-list-item>
+
+                </mat-list>
+            </div>
+
+            <div [ngClass]="{'hide': !startEndDate}">
+                <br />
+                <form [formGroup]="employeesContribution" (ngSubmit)="employeeContributions()">
+                    <small style="font-size: 12px;">Create Employees contribution timeline</small>
+                    <div class="inputContainer">
+                        <mat-form-field>
+                            <input formControlName="start_date" placeholder="Start date" matInput
+                                [matDatepicker]="picker1">
+                            <mat-datepicker-toggle mat-icon matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+                        <br />
+                        <br />
+                        <mat-form-field>
+                            <input formControlName="end_date" placeholder="End date" matInput [matDatepicker]="picker2">
+                            <mat-datepicker-toggle mat-icon matSuffix [for]="picker2"></mat-datepicker-toggle>
+                            <mat-datepicker #picker2></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                    <br />
+                    <button *ngIf="addContribution" style="float: right;" color="primary" mat-raised-button
+                        type="submit">Create</button>
+                    <button *ngIf="updateContribution" style="float: right;" color="primary" mat-raised-button
+                        type="submit">Change</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

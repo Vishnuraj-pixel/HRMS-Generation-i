@@ -30,7 +30,6 @@ export class AddFrameworkComponent implements OnInit {
   ngOnInit(): void {
     this.helper.openPopUpAddFramework.subscribe((open: boolean) =>  {
       this.closePopups = open;
-      console.log(this.closePopups + "ClosePopups")
     })
     this.createForm()
   }
