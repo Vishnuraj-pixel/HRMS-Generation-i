@@ -45,7 +45,7 @@ export class SignInComponent implements OnInit {
     if (visibility === true) {
       this.textOrPassword = 'text';
     } else if (visibility === false) {
-      this.textOrPassword = 'p  assword';
+      this.textOrPassword = 'password';
     }
   }
 

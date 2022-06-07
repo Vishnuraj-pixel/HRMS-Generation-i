@@ -22,15 +22,15 @@ export class BearerInterceptor implements HttpInterceptor {
     if (token) {
       const decryptToken = this.helper.decrypt(token);
       req = req.clone({
-        setHeaders: { 'Authorization': `Bearer ${decryptToken}` }
-      }) 
+        setHeaders: { Authorization: `Bearer ${decryptToken}` },
+      });
     }
 
     return next.handle(req).pipe(
       catchError((err: any) => {
-        if(err instanceof HttpErrorResponse) {
-          if(err.status === 401) {
-            console.warn('Api Error: 401')
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            console.warn('Api Error: 401');
           }
         }
         return throwError(err);

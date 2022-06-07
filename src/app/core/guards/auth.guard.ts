@@ -33,7 +33,7 @@ export class AuthGuard implements CanActivate {
       this._snackBar.open(
         'You are not authorized to access this page!',
         'Close', {
-          duration: 5
+          duration: 5000
         }
       );
       this.router.navigate(['/auth/sign-in']);

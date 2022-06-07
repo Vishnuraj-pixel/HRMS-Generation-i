@@ -15,7 +15,7 @@ export class ProjectListComponent implements OnInit {
   projectData: any[] = [];
   employeeData: any[] = [];
   employeeListInProjectContribution: any[] = [];
-  baseUrl = environment.baseApiUrl
+  baseUrl = environment.baseApiUrl;
 
   constructor(
     private helper: HelpersService,
@@ -45,7 +45,7 @@ export class ProjectListComponent implements OnInit {
         .getRequest(APIURL.listProjectByFramework + this.frameworkId)
         .subscribe((res) => {
           this.projectData = res;
-          console.log(this.projectData, 'wdufhipsadfi');
+          // console.log(this.projectData, 'wdufhipsadfi');
         });
     }
   }
